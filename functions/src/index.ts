@@ -12,12 +12,12 @@ app.use(bodyParser.json({ limit: '50mb' }))
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 app.use('/', router)
-app.use((req, res, next) => {
-    res.status(404)
-    res.json({
-        message: "not right request url"
-    });
-})
+// app.use((req, res, next) => {
+//     res.status(404)
+//     res.json({
+//         message: "not right request url"
+//     });
+// })
 
 const appForS = functions.https.onRequest(app)
 module.exports = { appForS }
