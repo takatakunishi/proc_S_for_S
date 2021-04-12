@@ -10,6 +10,7 @@ router.get('/test', (req, res) => {
 
 router.post('/testPost', (req, res) => {
     uploadsWTest(req.body.action, req.body.time, req.body.user).then(() => {
+        res.set({ 'Access-Control-Allow-Origin': '*' })
         res.status(200).send({ message: req.body.message })
     })
 })
